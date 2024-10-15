@@ -9,8 +9,7 @@ sudo apt-get update
 ```bash
 sudo apt-get install -y libgl1
 ```
-pip install cmake==3.25.2
-pip install dlib==19.24.2
+cmake==3.25.2, dlib==19.24.2
 
 
 
