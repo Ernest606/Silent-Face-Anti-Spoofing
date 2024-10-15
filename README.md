@@ -10,7 +10,7 @@ THIS PROJECT IS MODIFIED VERSION OF THIS GITHUB REPOSITORY: https://github.com/m
 sudo apt-get install -y libgl1
 ```
 
-[中文版](README.md)|**English Version**  
+## [中文版](README.md)|**English Version**  
 ![Silent-Face-Anti-Spoofing](https://github.com/minivision-ai/Silent-Face-Anti-Spoofing/blob/master/images/logo.jpg)
 
 # Silent-Face-Anti-Spoofing
