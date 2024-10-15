@@ -30,7 +30,7 @@ def check_image(image):
         return True
 
 
-def test(image_path, model_dir, device_id):
+def verify_spoof(image_path, model_dir, device_id):
     try:
         model = AntiSpoofPredict(device_id)
         image_cropper = CropImage()
@@ -88,4 +88,4 @@ if __name__ == "__main__":
         default="/workspaces/Silent-Face-Anti-Spoofing/captured_image.png",
         help="image used to test")
     args = parser.parse_args()
-    test(args.image_name, args.model_dir, args.device_id)
+    verify_spoof(args.image_name, args.model_dir, args.device_id)
