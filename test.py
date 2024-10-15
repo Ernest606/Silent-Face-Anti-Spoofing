@@ -82,7 +82,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--image_name",
         type=str,
-        default="image_F1.jpg",
+        default="/workspaces/Silent-Face-Anti-Spoofing/captured_image.png",
         help="image used to test")
     args = parser.parse_args()
     test(args.image_name, args.model_dir, args.device_id)
