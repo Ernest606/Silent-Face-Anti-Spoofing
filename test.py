@@ -31,39 +31,42 @@ def check_image(image):
 
 
 def test(image_path, model_dir, device_id):
-    model_test = AntiSpoofPredict(device_id)
-    image_cropper = CropImage()
-    image = cv2.imread(image_path)
-    image = cv2.resize(image, (int(image.shape[0] * 3 / 4), image.shape[0]))
-    result = check_image(image)
-    if result is False:
-        return
-    image_bbox = model_test.get_bbox(image)
-    prediction = np.zeros((1, 3))
-    test_speed = 0
-    # sum the prediction from single model's result
-    for model_name in os.listdir(model_dir):
-        h_input, w_input, model_type, scale = parse_model_name(model_name)
-        param = {
-            "org_img": image,
-            "bbox": image_bbox,
-            "scale": scale,
-            "out_w": w_input,
-            "out_h": h_input,
-            "crop": True,
-        }
-        if scale is None:
-            param["crop"] = False
-        img = image_cropper.crop(**param)
-        start = time.time()
-        prediction += model_test.predict(img, os.path.join(model_dir, model_name))
-        test_speed += time.time()-start
+    try:
+        model = AntiSpoofPredict(device_id)
+        image_cropper = CropImage()
+        image = cv2.imread(image_path)
+        image = cv2.resize(image, (int(image.shape[0] * 3 / 4), image.shape[0]))
+        result = check_image(image)
+        if result is False:
+            return 255, "No image"
+        image_bbox = model.get_bbox(image)
+        prediction = np.zeros((1, 3))
+        test_speed = 0
+        # sum the prediction from single model's result
+        for model_name in os.listdir(model_dir):
+            h_input, w_input, model_type, scale = parse_model_name(model_name)
+            param = {
+                "org_img": image,
+                "bbox": image_bbox,
+                "scale": scale,
+                "out_w": w_input,
+                "out_h": h_input,
+                "crop": True,
+            }
+            if scale is None:
+                param["crop"] = False
+            img = image_cropper.crop(**param)
+            start = time.time()
+            prediction += model.predict(img, os.path.join(model_dir, model_name))
+            test_speed += time.time()-start
 
-    # draw result of prediction
-    label = np.argmax(prediction)
-    value = prediction[0][label]/2
+        # draw result of prediction
+        label = np.argmax(prediction)
+        value = prediction[0][label]/2
 
-    return label
+        return label
+    except Exception as e:
+        return 255, f"Error detecting spoof: {e}"
 
 
 if __name__ == "__main__":
