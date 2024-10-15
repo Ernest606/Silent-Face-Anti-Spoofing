@@ -3,7 +3,7 @@ THIS PROJECT IS MODIFIED VERSION OF THIS GITHUB REPOSITORY: https://github.com/m
 ## To get to work on linux: 
 1. Update your package lists:
 ```bash
-    sudo apt-get update
+sudo apt-get update
 ```
 2. Install the necessary dependencies:
 ```bash
