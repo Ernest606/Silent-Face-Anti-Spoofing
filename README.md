@@ -1,6 +1,6 @@
 THIS PROJECT IS MODIFIED VERSION OF THIS GITHUB REPOSITORY: https://github.com/minivision-ai/Silent-Face-Anti-Spoofing
 
-##To get to work on linux: 
+## To get to work on linux: 
 1. Update your package lists:
 ```bash
     sudo apt-get update
