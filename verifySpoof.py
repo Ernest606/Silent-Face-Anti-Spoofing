@@ -12,9 +12,9 @@ import argparse
 import warnings
 import time
 
-from src.anti_spoof_predict import AntiSpoofPredict
-from src.generate_patches import CropImage
-from src.utility import parse_model_name
+from silentFaceAntiSpoofing.src.anti_spoof_predict import AntiSpoofPredict
+from silentFaceAntiSpoofing.src.generate_patches import CropImage
+from silentFaceAntiSpoofing.src.utility import parse_model_name
 warnings.filterwarnings('ignore')
 
 
@@ -64,7 +64,7 @@ def verify_spoof(image_path, model_dir, device_id):
         label = np.argmax(prediction)
         value = prediction[0][label]/2
 
-        return label
+        return label, value
     except Exception as e:
         return 255, f"Error detecting spoof: {e}"
 
@@ -80,7 +80,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--model_dir",
         type=str,
-        default="./resources/anti_spoof_models",
+        default="./silentFaceAntiSpoofing/resources/anti_spoof_models",
         help="model_lib used to test")
     parser.add_argument(
         "--image_name",

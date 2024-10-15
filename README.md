@@ -9,6 +9,9 @@ sudo apt-get update
 ```bash
 sudo apt-get install -y libgl1
 ```
+cmake==3.25.2, dlib==19.24.2
+
+
 
 ## [中文版](README.md)|**English Version**  
 ![Silent-Face-Anti-Spoofing](https://github.com/minivision-ai/Silent-Face-Anti-Spoofing/blob/master/images/logo.jpg)
