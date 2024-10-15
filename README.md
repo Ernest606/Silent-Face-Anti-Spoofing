@@ -1,14 +1,14 @@
 THIS PROJECT IS MODIFIED VERSION OF THIS GITHUB REPOSITORY: https://github.com/minivision-ai/Silent-Face-Anti-Spoofing
 
 To get to work on linux: 
-Update your package lists:
-    ```bash
+1. Update your package lists:
+```bash
     sudo apt-get update
-    ```
-Install the necessary dependencies:
-    ```bash
-    sudo apt-get install -y libgl1
-    ```
+```
+2. Install the necessary dependencies:
+```bash
+sudo apt-get install -y libgl1
+```
 
 [中文版](README.md)|**English Version**  
 ![Silent-Face-Anti-Spoofing](https://github.com/minivision-ai/Silent-Face-Anti-Spoofing/blob/master/images/logo.jpg)
